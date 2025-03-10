@@ -1,7 +1,7 @@
 name: My First GitHub Actions  # Give your workflow a name
 
 on: 
-  push  # Run workflow on every push to the repository
+  push  # Run workflow on every push
 
 jobs:  # Define the jobs (tasks) the workflow will perform
   build:  # Unique name for this job 
