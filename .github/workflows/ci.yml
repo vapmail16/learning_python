@@ -1,0 +1,22 @@
+name: My First GitHub Actions  # Give your workflow a name
+
+on: [push]  # Define when the workflow should run push OR pull_request OR issue_action?
+
+jobs:  # Define the jobs (tasks) the workflow will perform
+  build:  # Unique name for this job 
+    runs-on: ubuntu-latest  # Specify the OS to run the job on
+
+    steps:  # Steps inside this job
+      - name: Checkout repository  # Step 1 - Get the latest code
+        uses: actions/checkout@v3  # Uses a built-in GitHub Action
+
+      - name: Set up Python  # Step 2 - Install Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Run a Python main script  # Step 3 - Execute Python code
+        run: python3 week_1_script.py
+
+      - name: Run a Python test script  # Step 4 - Execute Python code
+        run: python3 test_script.py
