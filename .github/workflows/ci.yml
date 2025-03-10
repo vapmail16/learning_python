@@ -1,6 +1,7 @@
 name: My First GitHub Actions  # Give your workflow a name
 
-on: [push]  # Define when the workflow should run push OR pull_request OR issue_action?
+on: 
+  push  # Run workflow on every push to the repository
 
 jobs:  # Define the jobs (tasks) the workflow will perform
   build:  # Unique name for this job 
