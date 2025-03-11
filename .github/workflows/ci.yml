@@ -16,6 +16,10 @@ jobs:  # Define the jobs (tasks) the workflow will perform
         with:
           python-version: "3.11"
 
+
+      - name: Install dependencies  # ✅ Install pytest here
+        run: pip install pytest  
+
       - name: Run a Python main script  # Step 3 - Execute Python code
         env:
             CI: "true"  # ✅ Fix: Set CI as a string
