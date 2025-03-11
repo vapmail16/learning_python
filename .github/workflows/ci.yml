@@ -22,5 +22,8 @@ jobs:  # Define the jobs (tasks) the workflow will perform
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # ✅ Secure Token Usage
         run: python3 src/week_1_script.py
 
-      - name: Run a Python test script  # Step 4 - Execute Python code
-        run: python3 src/test_script.py
+      - name: Run tests
+        env:
+          PYTHONPATH: ${{ github.workspace }}/src
+        run: |
+          pytest tests/test_script.py
