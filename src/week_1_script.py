@@ -43,12 +43,12 @@ print("Are you married? ", is_married)
 
 #Task 1 - Create a Personal Info Program
  
-if is_ci:
-    name, age, color = "TestUser", "25", "Blue"
-else:
+if not is_ci:
     name = input("Enter Your Name: ")
     age = input("Enter Your Age: ")
     color = input("Enter Your Favourite Color: ")
+else:
+    name, age, color = "TestUser", "25", "Blue"
 
 
 print("Hello " +name+ "! Your age is", age, 
@@ -61,11 +61,11 @@ print(f"Hello {name}! Your age is {age} and your favourite colour is {color}")
 
 #Task 2 - Create a Simple Calculator
 
-if is_ci:
-    num1, num2 = 5,8
-else:
+if not is_ci:
     num1 = int(input("Enter First Number: "))
-    num2 = int(input("Enter Second Number: "))
+    num2 = int(input("Enter Second Number: "))    
+else:
+    num1, num2 = 5,8
 
 sum = num1 + num2
 difference = num1 - num2
