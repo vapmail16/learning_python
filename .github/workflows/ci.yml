@@ -17,6 +17,9 @@ jobs:  # Define the jobs (tasks) the workflow will perform
           python-version: "3.11"
 
       - name: Run a Python main script  # Step 3 - Execute Python code
+        env:
+            CI: "true"  # ✅ Fix: Set CI as a string
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # ✅ Secure Token Usage
         run: python3 src/week_1_script.py
 
       - name: Run a Python test script  # Step 4 - Execute Python code
