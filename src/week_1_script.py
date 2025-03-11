@@ -1,7 +1,7 @@
 import os # added so that Github actions can run the script with test values 
 
 # Check if running in Github Actions
-is_ci = os.getenv("CI") == True
+is_ci = os.getenv("CI") == "true"
 
 
 # This is Week 1 script. 
