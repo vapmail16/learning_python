@@ -27,8 +27,8 @@ jobs:  # Define the jobs (tasks) the workflow will perform
         run: python3 src/week_1_script.py
 
       - name: Run tests
-        env:
-          PYTHONPATH: ${{ github.workspace }}/src  # ✅ Ensure PYTHONPATH is correctly set
         run: |
-          echo "PYTHONPATH is set to: $PYTHONPATH"  # ✅ Debugging step
-          pytest --import-mode=importlib tests/
+          echo "PYTHONPATH is set to: $PYTHONPATH"
+          cd tests  # ✅ Move into the tests directory
+          pytest --import-mode=importlib
+          

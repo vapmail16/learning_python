@@ -1,11 +1,11 @@
 import sys
 import os
 
-# Add src/ to the system path
+# Manually add `src/` to the Python path
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../src")))
 
-
-from src.week_1_script import sum_result, difference_result, product_result
+# Import without `src.`
+from week_1_script import sum_result, difference_result, product_result  # ✅ Corrected import
 
 def test_sum():
     assert sum_result == 13
