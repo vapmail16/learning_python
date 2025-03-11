@@ -16,3 +16,50 @@ print("*******")
 
 
 # This is Day 2 Script - 
+
+name = "Vikkas Arun Pareek"
+age = 40
+height = 5.11
+weight = 85
+is_married = True
+
+print("Name: ", name)
+
+name = input("Enter Your Name")
+print("Hello " +name+ "!")
+
+print("hello " +name+ "!, your age is ", age, 
+      "years old, your hieght is ", height, ""
+      "and your weight is ", weight, " kgs.")
+
+print("Are you married? ", is_married)
+
+#Task 1 - Create a Personal Info Program
+ 
+name = input("Enter Your Name: ")
+age = input("Enter Your Age: ")
+color = input("Enter Your Favourite Color: ")
+
+print("Hello " +name+ "! Your age is", age, 
+      " and your favourite color is ", color)
+
+print("Hello " +name+ "! Your age is " +str(age)+ 
+      " and your favourite color is " +str(color)+".")
+
+print(f"Hello {name}! Your age is {age} and your favourite colour is {color}")
+
+#Task 2 - Create a Simple Calculator
+
+num1 = int(input("Enter First Number: "))
+num2 = int(input("Enter Second Number: "))
+sum = num1 + num2
+difference = num1 - num2
+product = num1 * num2
+
+print(f"Sum of {num1} and {num2} is {sum}")
+print(f"Difference of {num1} and {num2} is {difference}")
+print(f"Product of {num1} and {num2} is {product}")
+
+
+# This is Day 3 Script -
+
