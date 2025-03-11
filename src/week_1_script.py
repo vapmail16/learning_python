@@ -4,13 +4,10 @@ import os # added so that Github actions can run the script with test values
 is_ci = os.getenv("CI") == "true"
 print(f"Is CI: {is_ci}")
 
-
 # This is Week 1 script. 
 
 # This is Day 1 Script - It prints "Hello World!" to the console.
-
 print("Hello World!")
-
 print("My Name is Vikkas Arun Pareek")
 print("I am learning Python Programming Language")
 print("80-20 rule of learning, focus on essentions")
@@ -32,8 +29,9 @@ is_married = True
 
 print("Name: ", name)
 
-name = input("Enter Your Name")
-print("Hello " +name+ "!")
+if not is_ci:
+    name = input("Enter Your Name")
+    print("Hello " +name+ "!")
 
 print("hello " +name+ "!, your age is ", age, 
       "years old, your hieght is ", height, ""
