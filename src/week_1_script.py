@@ -1,3 +1,9 @@
+import os # added so that Github actions can run the script with test values 
+
+# Check if running in Github Actions
+is_ci = os.getenv("CI") == True
+
+
 # This is Week 1 script. 
 
 # This is Day 1 Script - It prints "Hello World!" to the console.
@@ -36,9 +42,13 @@ print("Are you married? ", is_married)
 
 #Task 1 - Create a Personal Info Program
  
-name = input("Enter Your Name: ")
-age = input("Enter Your Age: ")
-color = input("Enter Your Favourite Color: ")
+if is_ci:
+    name, age, color = "TestUser", "25", "Blue"
+else:
+    name = input("Enter Your Name: ")
+    age = input("Enter Your Age: ")
+    color = input("Enter Your Favourite Color: ")
+
 
 print("Hello " +name+ "! Your age is", age, 
       " and your favourite color is ", color)
@@ -50,8 +60,12 @@ print(f"Hello {name}! Your age is {age} and your favourite colour is {color}")
 
 #Task 2 - Create a Simple Calculator
 
-num1 = int(input("Enter First Number: "))
-num2 = int(input("Enter Second Number: "))
+if is_ci:
+    num1, num2 = 5,8
+else:
+    num1 = int(input("Enter First Number: "))
+    num2 = int(input("Enter Second Number: "))
+
 sum = num1 + num2
 difference = num1 - num2
 product = num1 * num2
