@@ -28,6 +28,7 @@ jobs:  # Define the jobs (tasks) the workflow will perform
 
       - name: Run tests
         env:
-          PYTHONPATH: ${{ github.workspace }}/src
+            PYTHONPATH: ${{ github.workspace }}/src  # ✅ Correctly set PYTHONPATH
         run: |
-          pytest tests/test_script.py
+            echo "PYTHONPATH is set to: $PYTHONPATH"  # ✅ Debugging step
+            pytest tests/test_script.py
