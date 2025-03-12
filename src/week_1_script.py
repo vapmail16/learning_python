@@ -6,7 +6,7 @@ is_test = any(key.startswith("PYTEST_") for key in os.environ)  # ✅ Better way
 print(f"Is Test: {is_test}")
 print(f"Is CI: {is_ci}")
 
-'''
+
 # This is Week 1 script. 
 
 # This is Day 1 Script - It prints "Hello World!" to the console.
@@ -82,7 +82,10 @@ print(f"Product of {num1} and {num2} is {product_result}")
 # This is Day 3 Script -
 
 
-age = input("Enter Your Age: ") 
+if not (is_ci or is_test):
+    age = int(input("Enter Your Age: "))
+else:
+    age = 20
 
 if int(age) < 21:
     print("You cant vote")
@@ -99,7 +102,7 @@ count = 1
 while count <5:
     print("Count:",count)
     count += 1
-''' 
+
 
 #1️⃣ Task 1: Write a program that checks whether a number is positive, negative, or zero.
 
