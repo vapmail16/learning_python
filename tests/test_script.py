@@ -5,7 +5,7 @@ import os
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../src")))
 
 # Import without `src.`
-from week_1_script import sum_result, difference_result, product_result  # ✅ Corrected import
+from week_1_script import sum_result, difference_result, product_result, num, i, text  # ✅ Corrected import
 
 def test_sum():
     assert sum_result == 13
@@ -24,6 +24,13 @@ def test_product():
 
 def test_fail_product():
     assert product_result != 20 
+
+assert num > 0 # ✅ Should pass for positive numbers
+
+assert list(range(1, 11)) == [1,2,3,4,5,6,7,8,9,10]  # ✅ Ensure correct range
+
+assert text == "Test"  # ✅ Ensure correct value of text for testing 
+
 
 
 # Run the test using the following command:
