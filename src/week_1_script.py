@@ -238,4 +238,128 @@ while True:
      print("Not Close")
 
  
+
 # This is Day 4 Script -
+
+
+# List
+# A list is a collection which is ordered and changeable. 
+# In Python lists are written with square brackets.
+# Example   
+
+fruits = ["Apple", "Banana", "Cherry", "Date", "Elderberry"]
+print(fruits)
+print(fruits[0])
+print(fruits[1])
+print(fruits[2])
+
+fruits[1] = "Blackberry"        
+print(fruits)
+
+fruits.append("Fig")
+print(fruits)       
+
+fruits.insert(2, "Blueberry")
+print(fruits)
+
+fruits.remove("Cherry")
+print(fruits)
+
+
+# Tuple
+# A tuple is a collection which is ordered and unchangeable.
+# In Python tuples are written with round brackets.
+# Example
+colour = ("Red", "Green", "Blue", "Yellow", "Purple")
+print(colour)
+print(colour[0])
+print(colour[1])
+print(colour[2])
+
+#colour[1] = "Black" # This will give an error as tuple is immutable
+#print(colour)
+
+
+# Dictionary
+# 
+# A dictionary is a collection which is unordered, changeable and indexed.
+# In Python dictionaries are written with curly brackets, and they have keys and values.
+# 
+# Example 
+
+person = {
+    "name": "Vikkas",
+    "age": 40,
+    "city": "London"
+}
+print(person)
+print(person["name"])
+print(person["age"])
+print(person["city"])
+
+person["city"] = "Manchester"
+print(person)
+
+person["country"] = "UK"
+print(person)
+
+person.pop("age")
+print(person)
+
+person.clear()
+print(person)
+
+
+
+ #1️⃣ Task 1: Create a list of 5 favorite movies.
+
+#Print the first and last movie.
+#Add a new movie.
+#Remove one movie.
+
+movies = ["The Shawshank Redemption", "The Godfather", "The Dark Knight", "The Lord of the Rings", "Pulp Fiction"]
+print(movies[0])
+print(movies[-1])
+
+movies.append("The Matrix")
+print(movies)
+
+movies.remove("The Godfather")
+print(movies)
+
+#✅ Task 2: Tuples (Immutable List)
+#Print all colors.
+#Create a tuple of 3 favorite colors.
+#Try modifying a color (observe the error).
+
+
+colour = ("Red", "Green", "Blue", "Yellow", "Purple")
+print(colour)
+print(colour[0])
+print(colour[1])
+print(colour[2])
+
+#colour[1] = "Black" # This will give an error as tuple is immutable
+#print(colour)  
+
+
+#3️⃣ Task 3: Create a dictionary for a student.
+
+#Store "name", "age", "course", and "grade".
+#Update the "grade" value.
+#Remove the "course" key.
+
+person = {
+    "name": "Vikkas",
+    "age": 40,
+    "course": "Python",
+    "grade": "A"
+}
+print(person)
+
+person["grade"] = "B"
+print(person)   
+
+person.pop("course")
+print(person)
+
