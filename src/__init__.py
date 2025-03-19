@@ -1,0 +1,1 @@
+# This makes src a module, and you can import the functions from week_1_script.py without using sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../src"))). 
