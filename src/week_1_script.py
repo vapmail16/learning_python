@@ -363,3 +363,97 @@ print(person)
 person.pop("course")
 print(person)
 
+
+
+# This is Day 5 Script -
+
+def greet():
+    print("Hello, Welcome to Python Programming!")
+
+greet()
+
+def greet_user(name):
+    print(f"Hello {name}, Welcome to Python Programming!")
+
+if not (is_ci or is_test):
+    name = input("Enter Your Name: ")
+else:
+    name = "TestUser"
+
+greet_user(name)
+
+greet_user("Neeru")
+
+def greet_user(name = "Guest"):
+    print(f"Hello {name}, Welcome to Python Programming!")  
+
+greet_user()
+greet_user("Miraya")
+
+
+def add(num1, num2):
+    return num1 + num2
+
+if not (is_ci or is_test):
+    num1 = int(input("Enter First Number: "))
+    num2 = int(input("Enter Second Number: "))
+else:
+    num1, num2 = 5, 8
+
+result = add(num1, num2)
+print(f"Sum of {num1} and {num2} is {result}")
+
+
+#1️⃣ Task 1: Create a function multiply(a, b) that returns a * b.
+
+def multiply(num1, num2):
+    return num1 * num2
+
+if not (is_ci or is_test):
+    num1 = int(input("Enter First Number: "))
+    num2 = int(input("Enter Second Number: "))
+else:
+    num1, num2 = 5, 8
+
+result = multiply(num1,num2)
+
+print(f"multiplication of {num1} and {num2} is {result}")
+
+
+
+#2️⃣ Task 2: Create a function is_even(n) that returns True if n is even, else False.
+
+
+if not (is_ci or is_test):
+        num = int(input("Enter a number: "))
+else:
+        num = 2
+
+def is_even(num):
+    if num % 2 == 0:
+        return True
+    else:
+        return False        
+    
+result = is_even(num)
+print(f"Is {num} even? {result}") 
+
+
+
+#3️⃣ Task 3: Create a function get_student_info(name, age, course="Python") 
+# that returns a formatted string.
+
+def get_student_info(name, age, course="Python"):
+    return f"Hello {name}, You are {age} years old and you are learning {course} Programming."  
+
+if not (is_ci or is_test):  
+    name = input("Enter Your Name: ")
+    age = input("Enter Your Age: ")
+else:
+    name, age = "TestUser", "25"        
+
+result = get_student_info(name, age)
+print(result)
+
+
+   
