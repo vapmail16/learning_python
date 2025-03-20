@@ -1,4 +1,6 @@
 import os # added so that Github actions can run the script with test values 
+import tempfile
+import os
 
 # Check if running in Github Actions
 is_ci = os.getenv("CI") == "true"
@@ -456,4 +458,87 @@ result = get_student_info(name, age)
 print(result)
 
 
+
+#1️⃣ Task 1: Writing to a File
+
+
+if not (is_ci or is_test):
+    with open("sample.txt", "w") as file:
+        file.write("Hello, this is my first file in Python!\n")
+    print("✅ File written successfully.")
+else:       
+    with tempfile.NamedTemporaryFile(delete=True) as temp_file:
+        temp_file.write(b"Hello, this is my first file in Python!\n")
+        
+
+#2️⃣ Task 2: Reading from a File
+            
+if not (is_ci or is_test):
+    with open("sample.txt", "r") as file:
+        content = file.read()
+        print("📖 File content:\n", content)
+else:   
+       with tempfile.NamedTemporaryFile(delete=True) as temp_file:
+        temp_file.write(b"Hello, this is my first file in Python!\n")
+
+
+#3️⃣ Task 3: Appending to a File
+
+if not (is_ci or is_test):
+    with open("sample.txt", "a") as file:
+        file.write("This is the second line in the file.\n")
+    print("✅ File appended successfully.")
+    print(content)
+
+else:
+    with tempfile.NamedTemporaryFile(delete=True) as temp_file:
+        temp_file.write(b"Hello, this is my first file in Python!\n")
+
    
+#4️⃣ Task 4: Reading Files Line by Line
+
+if not (is_ci or is_test):
+    with open("sample.txt", "r") as file:
+        for line in file:
+            print(line, end="")
+else:
+    with tempfile.NamedTemporaryFile(delete=True) as temp_file:
+        temp_file.write(b"Hello, this is my first file in Python!\n")
+
+
+
+#5️⃣ Task 5: Checking if a File Exists
+
+if os.path.exists("sample.txt"):
+      print("File exists.")
+      with open("sample.txt", "a") as file:
+        file.write("Hello, this is third file in Python!\n")
+      with open("sample.txt", "r") as file:
+        for line in file:
+            print(line, end="")  
+else:
+    print("File does not exist.")
+
+
+
+#6️⃣ Task 6: Handling File Errors
+
+if not (is_ci or is_test):
+    try:
+     with open("sample.txt", "r") as file:
+        content = file.read()
+        print(content)
+    except FileNotFoundError:
+     print("File does not exist.")
+    except PermissionError:
+     print("You do not have permission to read this file.")
+    except Exception as e:
+     print("An error occurred:", e)
+    else:
+     print("file is ok")
+else:
+    print("🔹 File is OK in test mode.")
+
+
+
+

@@ -1,5 +1,6 @@
 import sys
 import os
+import pytest
 
 # Manually add `src/` to the Python path
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../src")))
@@ -77,5 +78,72 @@ def test_get_student_info():
     assert get_student_info("TestUser", 25) == "Hello TestUser, You are 25 years old and you are learning Python Programming."
     
 
+# ✅ Task 10: Ensure file operations work correctly
 
-   
+# ✅ Setup: Create sample.txt if it doesn't exist
+
+def setup_file():
+    print("🔹 Creating sample.txt before running tests...")
+    with open("sample.txt", "w") as file:
+        file.write("Hello, this is my first file in Python!\n")
+
+setup_file()
+
+
+#✅ Does the file exist after writing?
+
+def test_file_exists():
+    assert os.path.exists("sample.txt") # ✅ File should exist after writing   
+
+
+
+#✅ Is the file content correct after writing?
+
+def test_file_reading():
+    with open("sample.txt", "r") as file:
+        content = file.read()
+        assert "Hello, this is my first file in Python!" in content # ✅ Check expected text
+
+
+#✅ Does appending work correctly (without erasing content)?
+
+def test_file_append():
+    with open("sample.txt", "a") as file:
+        file.write("This is the fourth line in the file.\n")
+    
+    with open("sample.txt", "r") as file:
+         content = file.read()
+    
+    assert "This is the fourth line in the file." in content # ✅ Check if new content exists
+
+#✅ Does deleting the file work properly?
+
+def test_file_delete():
+    if os.path.exists("sample.txt"):
+        os.remove("sample.txt")
+        assert not os.path.exists("sample.txt") # ✅ Check if file is deleted
+    else:
+        assert True
+
+#✅ Test Handling of Missing Files
+
+def test_missing_file():
+    filename = "sample.txt"
+
+    # ✅ Ensure the file is deleted before testing
+    if os.path.exists(filename):
+        os.remove(filename)
+
+    # ✅ Now test if FileNotFoundError is raised
+    try:
+        with open(filename, "r") as file:
+            content = file.read()
+    except FileNotFoundError:
+        assert True  # ✅ Pass because file is missing
+    else:
+        assert False  # ❌ Fail if no exception was raised
+
+
+
+        
+
