@@ -458,6 +458,7 @@ result = get_student_info(name, age)
 print(result)
 
 
+# This is Day 6 Script -
 
 #1️⃣ Task 1: Writing to a File
 
@@ -541,4 +542,183 @@ else:
 
 
 
+# This is Day 7 Script -
+
+#Understanding Classes and Objects
+
+
+class Car:
+    def __init__(self, make, model, year):
+        self.make = make
+        self.model = model
+        self.year = year 
+
+    def display(self):
+        print(f"{self.year} {self.make} {self.model}")
+
+if not (is_ci or is_test):
+    make = input("Enter Car Make: ")
+    model = input("Enter Car Model: ")
+    year = input("Enter Car Year: ")
+else:
+    make, model, year = "Toyota", "Corolla", "2021"
+
+my_car = Car(make, model, year)
+my_car.display()
+
+
+
+class bankaccount:
+    def __init__(self, owner, balance=0):
+        self.owner = owner
+        self.balance = balance
+
+    def deposit(self, amount):
+        self.balance += amount
+        return self.balance
+    
+    def withdraw(self, amount):
+        if amount <= self.balance:
+            self.balance -= amount
+            print(f"Amount Withdrawn: {amount}, Balance: {self.balance}")    
+        else:
+            return "Insufficient Funds"
+          
+    def display(self):
+        print(f"Owner: {self.owner}, Balance: {self.balance}")
+
+if not (is_ci or is_test):
+    owner = input("Enter Account Owner: ")
+    balance = int(input("Enter Account Balance: "))
+    amount = int(input("Enter Amount to Deposit: "))
+    withdraw_amount = int(input("Enter Amount to Withdraw: "))
+else:
+    owner, balance, amount, withdraw_amount = "Vikkas", 1000, 500, 200
+
+my_account = bankaccount(owner, balance)
+my_account.deposit(amount)
+my_account.withdraw(withdraw_amount)
+my_account.display()    
+
+
+
+class electriccar(Car):
+    def __init__(self, make, model, year, battery_size):
+        super().__init__(make, model, year)
+        self.battery_size = battery_size
+
+    def display_info(self):
+       super.display()    
+       print(f"Battery Size: {self.battery_size}")
+       
+if not (is_ci or is_test):
+    make = input("Enter Car Make: ")
+    model = input("Enter Car Model: ")
+    year = input("Enter Car Year: ")
+    battery_size = int(input("Enter Battery Size: "))
+else:
+    make, model, year, battery_size = "Tesla", "Model S", "2021", 100
+
+my_electric_car = electriccar(make, model, year, battery_size)
+my_electric_car.display()
+
+
+
+class dog:
+    def __init__(self, name, breed):
+        self.name = name 
+        self.breed = breed
+
+    def brak(self):
+        print(f"{self.name} is barking.")
+
+if not(is_ci or is_test):
+    name = input("Enter the Dog's Name ")
+    breed = input("Enter the Dog's Breed ")
+else:
+    name, breed = "Marshall", "German Shepherd"
+
+my_dog = dog(name, breed) 
+my_dog.brak()
+
+
+
+
+class books:
+    def __init__(self, title, author, year, status="Unread"):
+        self.title = title
+        self.author = author
+        self.year = year
+        self.status = status
+
+    def read(self):
+        self.status = "Read"
+        print(f"{self.title} is marked as {self.status}")
+
+    def unread(self):
+        self.status = "Unread"
+        print(f"{self.title} is marked as {self.status}")
+
+    def display(self):
+        print(f"Title: {self.title}, Author: {self.author}, Year: {self.year}, Status: {self.status}")  
+
+if not (is_ci or is_test):
+    title = input("Enter Book Title: ")
+    author = input("Enter Book Author: ")
+    year = input("Enter Book Year: ")
+else:
+    title, author, year = "Letters to My Mother", "Vikkas Arun Pareek", "2023"
+
+my_book = books(title, author, year)    
+my_book.unread()
+my_book.read()
+my_book.display()       
+
+
+
+class library():
+    def __init__(self):
+        self.books = []
+
+    def display_books(self):
+        if self.books:
+            print("📚 Available Books:")
+            for books in self.books:
+                books.display()
+        else:   
+            print("📭 The library is currently empty.")
+
+    def add_book(self, book):
+            self.books.append(book)
+            print(f"📚 {book.title} has been added to the library.")
+                  
+    def borrow_book(self, book):
+        if book in self.books:
+            self.books.remove(book)
+            print(f"📚 {book.title} has been borrowed.")
+        else:
+            print(f"📚 {book.title} is not available in the library.")
+
+    def return_book(self, book):
+        self.books.append(book)
+        print(f"📚 {book.title} has been returned to the library.")
+
+if not (is_ci or is_test):
+    title = input("Enter Book Title: ")
+    author = input("Enter Book Author: ")
+    year = input("Enter Book Year: ")
+else:
+    title, author, year = "The Alchemist", "Paulo Coelho", "1988"
+
+my_book = books(title, author, year)
+my_library = library()
+my_library.add_book(my_book)
+my_library.display_books()    
+my_library.borrow_book(my_book)
+my_library.display_books()
+my_library.return_book(my_book)
+my_library.display_books()
+
+
+# This is Day 8 Script -
 

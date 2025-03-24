@@ -6,7 +6,7 @@ import pytest
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../src")))
 
 # Import without `src.`
-from week_1_script import sum_result, difference_result, product_result, num, i, text, movies, colour, person, multiply, is_even, get_student_info  # ✅ Corrected import
+from week_1_script import sum_result, difference_result, product_result, num, i, text, movies, colour, person, multiply, is_even, get_student_info, Car, bankaccount, books, library, electriccar, dog  # ✅ Corrected import
 
 # ✅ Task 1: Testing Mathematical Operations
 
@@ -87,7 +87,7 @@ def setup_file():
     with open("sample.txt", "w") as file:
         file.write("Hello, this is my first file in Python!\n")
 
-setup_file()
+setup_file() # ✅ Create the file before running tests, Since pytest does not automatically call functions
 
 
 #✅ Does the file exist after writing?
@@ -146,4 +146,53 @@ def test_missing_file():
 
 
         
+# ✅ Task 11: Ensure Class Understanding code is working correctly
+
+def test_car_attributes():
+    car = Car("Toyota", "Corolla", "2021")
+    assert car.make == "Toyota"
+    assert car.model  ==    "Corolla"
+    assert car.year == "2021"
+
+
+def test_bankaccount():
+    acc = bankaccount("Vikkas", 1000)
+    assert acc.balance == 1000 
+    acc.deposit(1000)
+    assert acc.balance == 2000 
+    acc.withdraw(500)
+    assert acc.balance == 1500 
+
+
+def test_electriccar():
+    ecar = electriccar("Tesla", "Model S", "2021", 100)
+    assert ecar.make == "Tesla"
+    assert ecar.model == "Model S"
+    assert ecar.year == "2021"
+    assert ecar.battery_size == 100
+
+
+def test_dog():
+    test_dog = dog("Marshall", "German Shepherd")
+    assert test_dog.name == "Marshall"
+    assert test_dog.breed == "German Shepherd"
+
+
+def test_books():
+    b = books("Letters to My Mother", "Vikkas Arun Pareek", "2023")
+    b.read()
+    assert b.status == "Read"
+    b.unread()
+    assert b.status == "Unread"
+
+
+def test_library():
+    lib = library()
+    b = books("Letters to My Mother", "Vikkas Arun Pareek", "2023")
+    lib.add_book(b)
+    assert b in lib.books
+    lib.borrow_book(b)
+    assert b not in lib.books
+    lib.return_book(b)
+    assert b in lib.books
 
